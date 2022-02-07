@@ -1,6 +1,4 @@
-import targetWords from './targetWords.json' assert { type: "json" };
-import dictionary from './dictionary.json' assert { type: "json" };
-
+import {targetWords, dictionary } from './data.js'
 
 const alertContainer = document.querySelector('[data-alert-container]');
 const guessGrid = document.querySelector('[data-guess-grid]');
