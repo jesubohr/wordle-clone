@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
    box-sizing: border-box;
    font-family: monospace;
 }
@@ -10,7 +12,7 @@ body {
    padding: 1em;
    width: 100%;
    min-height: 100vh;
-   background-color: hsl(240, 3%, 7%);
+   background-color: hsl(0, 0%, 8%);
    font-size: clamp(0.5rem, 2.5vmin, 1.5rem);
 }
 
@@ -20,7 +22,7 @@ body {
    display: grid;
    grid-template-columns: repeat(20, minmax(auto, 1.25em));
    grid-auto-rows: 3em;
-   gap: .25em;
+   gap: 0.25em;
    justify-content: center;
 }
 
@@ -28,19 +30,20 @@ body {
    grid-column: span 2;
    padding: 0;
    border: none;
-   border-radius: .25em;
+   border-radius: 0.25em;
    color: white;
    background-color: hsl(
       var(--hue, 210),
       var(--saturation, 20%),
-      calc(var(--lightness, 30%) + var(--lightness-offset, 0%))
+      calc(var(--lightness, 35%) + var(--lightness-offset, 0%))
    );
    text-align: center;
    font-size: inherit;
    cursor: pointer;
    user-select: none;
 }
-.key:hover, .key:focus {
+.key:hover,
+.key:focus {
    --lightness-offset: 15%;
 }
 
@@ -53,8 +56,8 @@ body {
 
 .key.wrong {
    --hue: 0;
-   --saturation: 30%;
-   --lightness: 10%;
+   --saturation: 0%;
+   --lightness: 15%;
 }
 
 .key.wrong-location {
@@ -78,13 +81,13 @@ body {
    grid-template-rows: repeat(6, 4em);
    justify-content: center;
    align-content: center;
-   gap: .25em;
+   gap: 0.25em;
    margin-bottom: 1em;
 }
 
 .tile {
    color: #fff;
-   border: .05em solid hsl(0, 0%, 25%);
+   border: 0.05em solid hsl(0, 0%, 30%);
    font-size: 2em;
    font-weight: bold;
    text-align: center;
@@ -95,11 +98,11 @@ body {
 }
 
 .tile[data-state="active"] {
-   border-color: hsl(0, 0%, 55%);
+   border-color: hsl(0, 0%, 70%);
 }
 .tile[data-state="wrong"] {
    border: none;
-   background-color: hsl(0, 30%, 10%);
+   background-color: hsl(0, 0%, 15%);
 }
 .tile[data-state="wrong-location"] {
    border: none;
@@ -136,24 +139,21 @@ body {
 
 .alert {
    opacity: 1;
-   margin-bottom: .5em;
-   padding: .75em;
-   border-radius: .25em;
+   margin-bottom: 0.5em;
+   padding: 0.75em;
+   border-radius: 0.25em;
    background-color: hsl(200, 10%, 85%);
    transition: opacity 450ms ease-in-out;
    text-align: center;
    user-select: none;
    pointer-events: none;
 }
-
 .alert:last-child {
    margin-bottom: 0;
 }
-
 .alert.hide {
    opacity: 0;
 }
-
 
 /* KEYFRAMES */
 
