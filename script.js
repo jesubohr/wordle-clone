@@ -21,8 +21,8 @@ function startInteraction () {
    document.addEventListener('keydown', handleKeyPress);
 }
 function stopInteraction () {
-   document.removeEventListener('click', () => { });
-   document.removeEventListener('keydown', () => { });
+   document.removeEventListener('click', handleMouseClick);
+   document.removeEventListener('keydown', handleKeyPress);
 }
 
 function handleMouseClick (ev) {
@@ -137,7 +137,7 @@ function checkWinLose (guess, tiles) {
 
    const remainingTiles = guessGrid.querySelectorAll(':not([data-state])');
    if (remainingTiles.length === 0) {
-      showAlert(`You Lose😞 Correct word: ${targetWord}`, null);
+      showAlert(`You Lose😞 -> Word: ${targetWord.toUpperCase()}`, null);
       stopInteraction();
       return;
    }
@@ -177,8 +177,11 @@ function submitGuess () {
 
 function deleteKey () {
    const activeTiles = getActiveTiles();
+   if (activeTiles.length === 0) return;
+
    const lastTile = activeTiles[activeTiles.length - 1];
    if (lastTile === null) return;
+   
    lastTile.textContent = '';
    delete lastTile.dataset.state;
    delete lastTile.dataset.letter;
